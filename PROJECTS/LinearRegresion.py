@@ -31,7 +31,7 @@ def data_user():
 def calculo(x,y,n):
     """en esta función se hacen todos los calculos necesarios para la regresión."""
 
-    sum_mult = np.sum(xy)
+    sum_mult = np.sum(x*y)
     #print(f"el total de la sumatoria y multiplicacion: {sum_mult}")
     sum_exp_2 = np.sum(x**2)
     #print(f"el total de la sumatoria exponencial: {sum_exp_2}")
