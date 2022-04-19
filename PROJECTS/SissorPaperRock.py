@@ -46,3 +46,5 @@ elif user0 == 0:
         counter1 += 1
 else:
     quit()
+    
+#DEFINIR FUNCIONES PARA ESTE PROGRAMA
