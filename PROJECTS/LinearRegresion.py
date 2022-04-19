@@ -44,3 +44,5 @@ def calculo(x,y,n):
 vec_x, vec_y,var0 = data_user()
 calculo(vec_x,vec_y,var0)
 
+def graph():
+    pass
