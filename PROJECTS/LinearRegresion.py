@@ -46,3 +46,6 @@ calculo(vec_x,vec_y,var0)
 
 def graph():
     pass
+
+def gui():
+    pass
