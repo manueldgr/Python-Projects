@@ -1,4 +1,3 @@
-from code import interact
 import numpy as np
 from matplotlib import pyplot as plt
 
@@ -44,19 +43,24 @@ def calculo(x,y,n):
     return pendiente, intersc
 
 vec_x, vec_y,var0 = data_user()
-calculo(vec_x,vec_y,var0)
-pendiente, intersc = calculo()
+pendiente, intersc = calculo(vec_x,vec_y,var0)
 
-def graph(ax_x,ax_y,m,inter):
-    space = np.linspace(vec_x[0],vec_x[var0],num=100)
+def graph(ax_x,ax_y,m,inter,ndata):
+    space = np.linspace(ax_x[0],ax_x[ndata-1],num=100)
+    vector_linealeq = []
     for i in space:
         f_x = m*(i) + inter
-        plt.plot(i,f_x)
-        
-    plt.plot(ax_x,ax_y,'o')
+        vector_linealeq.append(f_x)
+    eq_lineal = np.array(vector_linealeq)
+    plt.plot(space,eq_lineal,linestyle='--',label='Ecuación Lineal')
+    plt.plot(ax_x,ax_y,'o',label='Data')
+    plt.xlabel('x'),plt.ylabel('y')
+    plt.title('REGRESIÓN LINEAL')
+    plt.legend()
+    plt.grid(True)
     plt.show()
 
-graph(vec_x,vec_y,pendiente,intersc)
+graph(vec_x,vec_y,pendiente,intersc,var0)
 
 def gui():
     pass
