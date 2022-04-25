@@ -1,5 +1,6 @@
+from code import interact
 import numpy as np
-import math as m
+from matplotlib import pyplot as plt
 
 """
 En este código es para crear una regresión lineal obteniendo los datos del usuario.
@@ -35,17 +36,27 @@ def calculo(x,y,n):
     sum_exp_2 = np.sum(x**2)
     sum_x = np.sum(x); sum_y = np.sum(y)
     prom_x = (1/n)*sum_x; prom_y = (1/n)*sum_y
-    pendiente = ((n*sum_mult) - (sum_x*sum_y))/((n*sum_exp_2) - ((sum_x)*2)) #a1
+    pendiente = ((n*sum_mult) - (sum_x*sum_y))/((n*sum_exp_2) - ((sum_x)**2)) #a1
     print(f"pendiente (m)->\t{pendiente}")
     intersc = prom_y - (pendiente*prom_x) #a0
     print(f"interseccion (b)->\t{intersc}")
     print(f"regresion lineal->\t{pendiente:.4f}x + {intersc:.4f}")
+    return pendiente, intersc
 
 vec_x, vec_y,var0 = data_user()
 calculo(vec_x,vec_y,var0)
+pendiente, intersc = calculo()
 
-def graph():
-    pass
+def graph(ax_x,ax_y,m,inter):
+    space = np.linspace(vec_x[0],vec_x[var0],num=100)
+    for i in space:
+        f_x = m*(i) + inter
+        plt.plot(i,f_x)
+        
+    plt.plot(ax_x,ax_y,'o')
+    plt.show()
+
+graph(vec_x,vec_y,pendiente,intersc)
 
 def gui():
     pass
