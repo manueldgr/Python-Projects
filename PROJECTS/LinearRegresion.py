@@ -38,8 +38,8 @@ def calculo(x,y,n):
     pendiente = ((n*sum_mult) - (sum_x*sum_y))/((n*sum_exp_2) - ((sum_x)**2)) #a1
     print(f"pendiente (m)->\t{pendiente}")
     intersc = prom_y - (pendiente*prom_x) #a0
-    print(f"interseccion (b)->\t{intersc}")
-    print(f"regresion lineal->\t{pendiente:.4f}x + {intersc:.4f}")
+    print(f"intersección (b)->\t{intersc}")
+    print(f"regresión lineal->\t{pendiente:.4f}x + {intersc:.4f}")
     return pendiente, intersc
 
 vec_x, vec_y,var0 = data_user()
