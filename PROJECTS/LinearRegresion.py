@@ -1,9 +1,12 @@
 import numpy as np
 from matplotlib import pyplot as plt
+import tkinter
 
 """
 En este código es para crear una regresión lineal obteniendo los datos del usuario.
 """
+def gui():
+    pass
 
 def data_user():
     """se tomaran los datos que ingrese el usuario"""
@@ -61,6 +64,3 @@ def graph(ax_x,ax_y,m,inter,ndata):
     plt.show()
 
 graph(vec_x,vec_y,pendiente,intersc,var0)
-
-def gui():
-    pass
