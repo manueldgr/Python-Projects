@@ -49,7 +49,7 @@ vec_x, vec_y,var0 = data_user()
 pendiente, intersc = calculo(vec_x,vec_y,var0)
 
 def graph(ax_x,ax_y,m,inter,ndata):
-    space = np.linspace(ax_x[0],ax_x[ndata-1],num=100)
+    space = np.linspace(min(ax_x),max(ax_x),num=100)
     vector_linealeq = []
     for i in space:
         f_x = m*(i) + inter
