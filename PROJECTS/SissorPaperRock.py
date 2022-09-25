@@ -1,7 +1,7 @@
 #created by: Manueldg30
 #this code is for a game called "Rock, Paper, Scissors".
-#to make it more interesting, we'll create two NPC (Non Playable Character). 
-#in the case that the user wants to play with the computer, he can select the option.
+#to make it more interesting, I'll create two NPC (Non Playable Character). 
+
 
 import random as r
 
@@ -47,4 +47,3 @@ elif user0 == 0:
 else:
     quit()
     
-#DEFINIR FUNCIONES PARA ESTE PROGRAMA

@@ -1,10 +1,12 @@
-from code import interact
 import numpy as np
 from matplotlib import pyplot as plt
+import tkinter
 
 """
 En este código es para crear una regresión lineal obteniendo los datos del usuario.
 """
+def gui():
+    pass
 
 def data_user():
     """se tomaran los datos que ingrese el usuario"""
@@ -39,24 +41,26 @@ def calculo(x,y,n):
     pendiente = ((n*sum_mult) - (sum_x*sum_y))/((n*sum_exp_2) - ((sum_x)**2)) #a1
     print(f"pendiente (m)->\t{pendiente}")
     intersc = prom_y - (pendiente*prom_x) #a0
-    print(f"interseccion (b)->\t{intersc}")
-    print(f"regresion lineal->\t{pendiente:.4f}x + {intersc:.4f}")
+    print(f"intersección (b)->\t{intersc}")
+    print(f"regresión lineal->\t{pendiente:.4f}x + {intersc:.4f}")
     return pendiente, intersc
 
 vec_x, vec_y,var0 = data_user()
-calculo(vec_x,vec_y,var0)
-pendiente, intersc = calculo()
+pendiente, intersc = calculo(vec_x,vec_y,var0)
 
-def graph(ax_x,ax_y,m,inter):
-    space = np.linspace(vec_x[0],vec_x[var0],num=100)
+def graph(ax_x,ax_y,m,inter,ndata):
+    space = np.linspace(min(ax_x),max(ax_x),num=100)
+    vector_linealeq = []
     for i in space:
         f_x = m*(i) + inter
-        plt.plot(i,f_x)
-        
-    plt.plot(ax_x,ax_y,'o')
+        vector_linealeq.append(f_x)
+    eq_lineal = np.array(vector_linealeq)
+    plt.plot(space,eq_lineal,linestyle='--',label='Ecuación Lineal')
+    plt.plot(ax_x,ax_y,'o',label='Data')
+    plt.xlabel('x'),plt.ylabel('y')
+    plt.title('REGRESIÓN LINEAL')
+    plt.legend()
+    plt.grid(True)
     plt.show()
 
-graph(vec_x,vec_y,pendiente,intersc)
-
-def gui():
-    pass
+graph(vec_x,vec_y,pendiente,intersc,var0)
